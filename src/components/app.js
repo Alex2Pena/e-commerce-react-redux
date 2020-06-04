@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './components/header.js';
-import Footer from './components/footer.js'
-import StoreFront from './components/store-front.js';
+import Header from './header';
+import Footer from './footer.js';
+import StoreFront from './store-front';
 
 export default props => {
     return (

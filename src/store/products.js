@@ -3,13 +3,15 @@ let initialState = [{
       name: 'Hammer Set',
       desc: 'Break or fix stuff!',
       price: 35.00,
-      count: 0
+      image: 'https://dummyimage.com/300x300/000/fff', 
+      count: 2  
     },
     {
       category: 'tools',
       name: 'Screw Driver Set',
       desc: 'Screw it in or screw it out!',
       price: 15.00,
+      image: 'https://dummyimage.com/300x300/000/fff', 
       count: 20
     },
     {
@@ -17,6 +19,7 @@ let initialState = [{
       name: 'Socket Set',
       desc: 'Lefty loosie, righty tighty!',
       price: 100.00,
+      image: 'https://dummyimage.com/300x300/000/fff',
       count: 17
     },
     {
@@ -24,6 +27,7 @@ let initialState = [{
       name: 'Wrench & Plyer Set',
       desc: 'Get a grip dude!',
       price: 50.00,
+      image: 'https://dummyimage.com/300x300/000/fff',
       count: 12
     },
     {
@@ -31,6 +35,7 @@ let initialState = [{
       name: 'Cards against humanity',
       desc: 'Do you know your friends?',
       price: 30.00,
+      image: 'https://dummyimage.com/300x300/000/fff',
       count: 22
     },
     {
@@ -38,6 +43,7 @@ let initialState = [{
       name: 'Poker Set',
       desc: 'Comes with cards & chips!',
       price: 20.00,
+      image: 'https://dummyimage.com/300x300/000/fff',
       count: 6
     },
     {
@@ -45,6 +51,7 @@ let initialState = [{
       name: 'Black Jack Set',
       desc: 'Comes with cards & chips!',
       price: 20.00,
+      image: 'https://dummyimage.com/300x300/000/fff',
       count: 6
     },
     {
@@ -52,6 +59,7 @@ let initialState = [{
       name: 'Farkle',
       desc: 'Most fun you can have with dice!',
       price: 5.00,
+      image: 'https://dummyimage.com/300x300/000/fff',      
       count: 32
     },
     {
@@ -59,20 +67,23 @@ let initialState = [{
       name: 'VR Headset',
       desc: 'Go anywhere from anywhere!',
       price: 650.00,
+      image: 'https://dummyimage.com/300x300/000/fff',
       count: 23
     },
     {
       category: 'electronics',
       name: 'Laptop Computer',
       desc: 'Get stuff done on the go!',
-      price: 1850.00,
+      price: 1850.0,
+      image: 'https://dummyimage.com/300x300/000/fff',
       count: 10
     },
     {
       category: 'electronics',
       name: 'Desktop Computer',
       desc: 'Your dream machine!',
-      price: 1550.00,
+      price: 1550.0,
+      image: 'https://dummyimage.com/300x300/000/fff',
       count: 23
     },
     {
@@ -80,6 +91,7 @@ let initialState = [{
       name: 'Smart Phone',
       desc: 'Stay connected anywhere, anytime!',
       price: 650.00,
+      image: 'https://dummyimage.com/300x300/000/fff',
       count: 18
     },
     {
@@ -87,6 +99,7 @@ let initialState = [{
       name: 'Hat',
       desc: 'Cover your dome!',
       price: 150.00,
+      image: 'https://dummyimage.com/300x300/000/fff',
       count: 8
     },
     {
@@ -94,6 +107,7 @@ let initialState = [{
       name: 'Shrit',
       desc: 'Long and short sleve!',
       price: 150.00,
+      image: 'https://dummyimage.com/300x300/000/fff',
       count: 8
     },
     {
@@ -101,6 +115,7 @@ let initialState = [{
       name: 'Pants',
       desc: 'Bulit to last!',
       price: 150.00,
+      image: 'https://dummyimage.com/300x300/000/fff',
       count: 8
     },
     {
@@ -108,6 +123,7 @@ let initialState = [{
       name: 'Shoes',
       desc: 'Most comfortable ever!',
       price: 150.00,
+      image: 'https://dummyimage.com/300x300/000/fff',
       count: 8
     }
   ]
@@ -127,10 +143,15 @@ export default (state = initialState, action) => {
   }
     case 'RESET':
       return initialState;
-      
     case "ADD_TO_CART": {
     // when an item is added to the card, reduce the count of that item by 1
-    return [...state, ]
+    let products = [...state]
+    for(let i=0; i<products.length; i++){
+      if (products[i].name === payload.name  && products[i].count > 0){
+        products[i].count -= 1;
+      }
+    }
+    return products;
   }
     default:
       return state;
