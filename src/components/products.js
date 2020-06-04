@@ -9,10 +9,16 @@ const Products = props => {
     <section>
       <h3>Products list</h3>
       <ul>
-        {props.products.map((product, idx) => <li key={idx}>{product.name} 
-        {!!product.count && <button onClick={() => props.addToCart(product)}>Add to Cart</button>}
+        {props.products.map((product, idx) => <li key={idx}>
+          <div>
+            <h4>{product.name}</h4>
+            <p>Num in stock: {product.count}</p>
+            <p>Price: {product.price}</p>
+            <p>Desc: {product.desc}</p>
+            <img src = {product.image} />
+        {!!product.count && <button onClick={() => props.addToCart(product)}>Add</button>}
+          </div>      
         </li>
-        
         )}
       </ul>
 

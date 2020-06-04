@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import store from './store/index.js'
-import App from './app.js'
+import App from './components/app.js'
 
 class Main extends React.Component {
     render() {
@@ -16,4 +16,4 @@ class Main extends React.Component {
 }
 
 const root = document.getElementById('root');
-ReactDOM.render(<Main />, root) ;
+ReactDOM.render(<Main />, root);
